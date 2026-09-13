@@ -25,6 +25,8 @@ services:
       - "8080:8080"
     environment:
       RabbitMq__HostName: rabbitmq
+      # Development para expor o Swagger UI (http://localhost:8080/swagger) também via Docker.
+      ASPNETCORE_ENVIRONMENT: Development
     depends_on:
       rabbitmq:
         condition: service_healthy

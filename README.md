@@ -55,7 +55,7 @@ Isso sobe:
   usuário/senha `guest`/`guest`).
 - **MailHog** — servidor SMTP falso para testes locais, em `localhost:1025`; veja os emails
   recebidos em `http://localhost:8025`.
-- **Api** — `http://localhost:8080`.
+- **Api** — `http://localhost:8080`, com Swagger UI em `http://localhost:8080/swagger` (também abre automaticamente ao rodar a Api localmente com `dotnet run`, fora do Docker).
 - **Worker** — consumindo a fila em segundo plano.
 
 ### Disparando um lote de teste
