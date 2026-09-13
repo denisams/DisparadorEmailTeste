@@ -1,0 +1,48 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  api:
+    build:
+      context: .
+      dockerfile: src/DisparadorEmailTeste.Api/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      RabbitMq__HostName: rabbitmq
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  worker:
+    build:
+      context: .
+      dockerfile: src/DisparadorEmailTeste.Worker/Dockerfile
+    restart: unless-stopped
+    environment:
+      RabbitMq__HostName: rabbitmq
+      Smtp__Host: mailhog
+      Smtp__Porta: 1025
+      Smtp__UsarSsl: "false"
+      # Botão principal de volumetria: emails enviados por segundo pelo Worker.
+      LimiteDeEnvio__EmailsPorSegundo: "5"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mailhog:
+        condition: service_started

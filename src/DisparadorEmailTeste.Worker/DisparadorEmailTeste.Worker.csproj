@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-DisparadorEmailTeste.Worker-97d2d420-fdc1-41aa-abe7-c72a17e3355b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.17" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DisparadorEmailTeste.Dominio\DisparadorEmailTeste.Dominio.csproj" />
+    <ProjectReference Include="..\DisparadorEmailTeste.Infraestrutura\DisparadorEmailTeste.Infraestrutura.csproj" />
+  </ItemGroup>
+</Project>

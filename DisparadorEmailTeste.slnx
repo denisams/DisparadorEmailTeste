@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DisparadorEmailTeste.Api/DisparadorEmailTeste.Api.csproj" />
+    <Project Path="src/DisparadorEmailTeste.Dominio/DisparadorEmailTeste.Dominio.csproj" />
+    <Project Path="src/DisparadorEmailTeste.Infraestrutura/DisparadorEmailTeste.Infraestrutura.csproj" />
+    <Project Path="src/DisparadorEmailTeste.Worker/DisparadorEmailTeste.Worker.csproj" />
+  </Folder>
+  <Folder Name="/testes/">
+    <Project Path="testes/DisparadorEmailTeste.Testes/DisparadorEmailTeste.Testes.csproj" />
+  </Folder>
+</Solution>
